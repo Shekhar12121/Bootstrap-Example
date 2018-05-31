@@ -1,0 +1,9 @@
+https://www.codeply.com/results?q=carousel
+
+
+https://www.creative-tim.com/bootstrap-cheat-sheet#
+
+
+for push file in existing folder
+
+https://coderwall.com/p/2hnbua/how-to-add-an-existing-folder-on-your-computer-to-a-new-git-repo
