@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<script>
+		var app = angular.module('myApp',[])
+                .controller('myCtrl', function($scope){
+                	
+                	$scope.validation = function(isValid){
+                		// var isValid = true;
+                		if(isValid){
+                			window.location.href = 'https://www.youtube.com/watch?v=jHhtaJAdYv8'
+                		}
+                		else {
+                			alert('errorx')
+                		}
+                		
+                	}
+                })
+	</script>
+	<!-- <script></script> -->
+	<style>
+		
+		input.ng-invalid{border: 2px solid red;}
+
+	</style>
+</head>
+<body ng-controller="myCtrl">
+	<form name="frm" method="post" ng-submit="validation(frm.$valid)" novalidate>
+		{{user}}<br><br><br>
+		Email:
+		<input type="email" name="txtEmail" ng-model="user.txtEmail" placeholder="name here" required>
+		<span ng-show="frm.txtEmail.$error.required">Required field</span><br><br>
+       
+       Name:
+		<input type="text" name="txtName" ng-model="user.txtName" placeholder="name here" required>
+		<span ng-show="frm.txtName.$error.required">Required field</span><br><br>
+
+		Password:
+		<input type="password" name="txtPwd" ng-model="user.txtPwd" placeholder="name here" required>
+		<span ng-show="frm.txtPwd.$error.required">Required field</span><br><br>
+
+		Re-password:
+		<input type="password" name="txtrePwd" ng-model="user.txtrePwd" placeholder="name here" required>
+		<span ng-show="frm.txtrePwd.$error.required">Required field</span><br><br>
+
+		<button type="Submit">Submit</button>
+	</form>
+</body>
+</html>
