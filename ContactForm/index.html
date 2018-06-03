@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+           <!-- jQuery library -->
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+           <!-- Popper JS -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+           <!-- Latest compiled JavaScript -->
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+           <!-- external script -->
+           <script src="service.js"></script>
+</head>
+
+
+<body ng-app="app" ng-controller="ContactController">
+	
+
+ <div class="container-fluid">
+<form class="mt-5 ml-5">
+ 
+
+ 	
+  
+	<div class="form-group col-md-6 mt-100"> <!-- Full Name -->
+		<label for="full_name_id" class="control-label"> Name :</label>
+		<input type="text" class="form-control" id="full_name_id" name="full_name" ng-model="newcontact.name">
+	</div>
+	<div class="form-group col-md-6 w-100"> <!-- Street 1 -->
+		<label for="street1_id" class="control-label">Email : </label>
+		<input type="text" class="form-control" id="street1_id" name="street1" ng-model="newcontact.email">
+	</div>					
+							
+	<div class="form-group col-md-6 w-100"> <!-- Street 2 -->
+		<label for="street2_id" class="control-label">Phone:</label>
+		<input type="text" class="form-control" id="street2_id" name="street2" ng-model="newcontact.phone">
+	</div>	
+	<input type="hidden" ng-model="newcontact.id" />
+   
+     <div class="form-group"> <!-- Submit Button -->
+		<button class="btn btn-primary btn-lg pl-5 pr-5 ml-3 mt-2"  ng-click="saveContact()"> Save</button>
+	</div>
+	
+</form>
+
+  <!-- bootstrab table here -->
+
+  <div class="col-md-6 ml-5">
+  <table class="table table-dark" style="border-radius: 15px; outline: none;">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="contact in contacts">
+        <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.phone }}</td>
+    <td>
+        <button class="btn btn-warning letter text-white mr-2"><a href="#" ng-click="edit(contact.id)" style="color: white;">edit</a></button> 
+        <button type="button" class="btn btn-danger letter"><a href="#" ng-click="delete(contact.id)" style="color: white;">delete</a></td>
+    </td>
+    </tr>
+  </tbody>
+</table>
+ </div>
+</div>
+
+
+
+
+
+<!-- <div ng-app="app" ng-controller="ContactController"><br>
+    <form>
+    <label>Name</label> 
+        <input type="text" name="name" ng-model="newcontact.name"/><br /><br />
+    <label>Email</label> 
+        <input type="text" name="email" ng-model="newcontact.email"/><br /><br />
+    <label>Phone</label> 
+        <input type="text" name="phone" ng-model="newcontact.phone"/><br /><br />
+        <br/>
+        <input type="hidden" ng-model="newcontact.id" />
+     <input type="button" value="Save" ng-click="saveContact()" />
+    </form><br />
+<table>
+<thead> 
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="contact in contacts">
+    <td>{{ contact.name }}</td>
+    <td>{{ contact.email }}</td>
+    <td>{{ contact.phone }}</td>
+    <td>
+        <a  href="#" ng-click="edit(contact.id)">edit</a> | 
+        <a href="#" ng-click="delete(contact.id)">delete</a>
+    </td>
+ </tr>
+</tbody>
+</table>    
+</div> -->
+</body>
+</html>
