@@ -47,7 +47,7 @@
 		<input type="password" name="txtrePwd" ng-model="user.txtrePwd" placeholder="name here" required>
 		<span ng-show="frm.txtrePwd.$error.required">Required field</span><br><br>
 
-		<button type="Submit">Submit</button>
+		<button ng-disabled="frm.$invalid" type="Submit"><a href="https://www.youtube.com/watch?v=jHhtaJAdYv8">Submit</a></button>
 	</form>
 </body>
 </html>
